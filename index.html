@@ -5,8 +5,8 @@
         
     </head>
     <body>
-        <h1>Première étape</h1>
         <script type="module">
+            print("Première étape");
             import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
             // Données utilisées dans la création du graphique
             const data = [
@@ -71,12 +71,8 @@
             svg.append("g")
                 .attr("class", "axis y-axis")
                 .call(d3.axisLeft(y));
-        </script>
-        <hr>
-        
-        <h1>Deuxième étape</h1>
-        <script type="module">  
-            import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+            print("Deuxième étape");
             const data2 = [
                 { category: 'A', part1: 30, part2: 20 },
                 { category: 'B', part1: 40, part2: 10 },
@@ -120,6 +116,5 @@
                 .attr("fill", d => color2(d.key))
                 ;
         </script>
-        <hr>
     </body>
 </html>
