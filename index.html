@@ -11,9 +11,6 @@
         <div id="gra1">Première étape</div>
         <div id="gra2">Deuxième étape</div>
         <script>
-            const header1 = document.createElement("p");
-            header1.textContent = "Première étape";
-            document.body.appendChild(header1);
             const tooltip = d3.select("body").append("div").attr("class", "tooltip");
             // Données utilisées dans la création du graphique
             const data = [
@@ -90,10 +87,6 @@
                 .call(d3.axisLeft(y));
             svg.attr("id", "g1");
 
-
-            const header2 = document.createElement("p");
-            header2.textContent = "Deuxième étape";
-            document.body.appendChild(header2);
             const data2 = [
                 { category: 'A', part1: 30, part2: 20 },
                 { category: 'B', part1: 40, part2: 10 },
