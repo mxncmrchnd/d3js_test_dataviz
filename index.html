@@ -143,14 +143,17 @@
                 .call(d3.axisLeft(y));
             svg2.attr("id", "g2");
 
+
+            var gr1 = document.getElementById("g1");
+            var gr2 = document.getElementById("g1");
             $("#cg").click(function(){
-                  if($("#g1").style.display !="none"){
-                      $("#g1").style.display = "none";
-                      $("#g1").style.display = "block";
+                  if(gr1.style.display !="none"){
+                      gr1.style.display = "none";
+                      gr2.style.display = "block";
                   }
                 else{
-                      $("#g1").style.display = "block";
-                      $("#g1").style.display = "none";
+                      gr1.style.display = "block";
+                      gr2.style.display = "none";
                   }
             });
         </script>
