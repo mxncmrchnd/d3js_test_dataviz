@@ -13,11 +13,12 @@
         <script>
             const tooltip = d3.select("body").append("div").attr("class", "tooltip");
             // Données utilisées dans la création du graphique
-            const data = [
-                { category: 'A', part1: 30, part2: 20 },
-                { category: 'B', part1: 40, part2: 10 },
-                { category: 'C', part1: 20, part2: 30 },
-            ];
+            d3.csv("https://github.com/mxncmrchnd/d3js_test_dataviz/blob/main/data.csv").then(function(data) {
+                // Convertir les données en nombres pour "part1" et "part2"
+                data.forEach(d => {
+                    d.part1 = +d.part1;
+                    d.part2 = +d.part2;
+                });
             
             // Définition de la hauteur et de la largeur du graphique (incluant une marge)
             const margin = { top: 20, right: 30, bottom: 40, left: 40 },
