@@ -10,7 +10,7 @@
             const header1 = document.createElement("p");
             header1.textContent = "Première étape";
             document.body.appendChild(header1);
-            const tooltip = d3.select("svg").append("div").attr("class", "tooltip");
+            const tooltip = d3.select("body").append("div").attr("class", "tooltip");
             // Données utilisées dans la création du graphique
             const data = [
                 { category: 'A', part1: 30, part2: 20 },
@@ -140,7 +140,6 @@
                     .on("mouseout", function() {
                         tooltip.transition().duration(500).style("opacity", 0); // Masquer le tooltip
                     });
-                ;
             svg2.append("g")
                 .attr("class", "axis x-axis")
                 .attr("transform", `translate(0,${height})`)
