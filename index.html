@@ -5,6 +5,7 @@
         
     </head>
     <body>
+        <h1>Première étape</h1>
         <script type="module">
             import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
             // Données utilisées dans la création du graphique
@@ -71,5 +72,53 @@
                 .attr("class", "axis y-axis")
                 .call(d3.axisLeft(y));
         </script>
+        <hr>
+        
+        <h1>Deuxième étape</h1>
+        <script>         
+            const data = [
+                { category: 'A', part1: 30, part2: 20 },
+                { category: 'B', part1: 40, part2: 10 },
+                { category: 'C', part1: 20, part2: 30 },
+            ];
+            const margin = { top: 20, right: 30, bottom: 40, left: 40 },
+                  width = 500 - margin.left - margin.right,
+                  height = 300 - margin.top - margin.bottom; 
+            const svg = d3.select("body").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+            const x0 = d3.scaleBand()
+                .domain(data.map(d => d.category))
+                .range([0, width])
+                .padding(0.1);
+            const x1 = d3.scaleBand()
+                .domain(["part1", "part2"])
+                .range([0, x0.bandwidth()])
+                .padding(0.05);
+            const y2 = d3.scaleLinear()
+                .domain([0, d3.max(data, d => d.part1 + d.part2)])
+                .nice()
+                .range([height, 0]);
+            const color = d3.scaleOrdinal()
+                .domain(["part1", "part2"])
+                .range(["#1f77b4", "#ff7f0e"]);
+            svg.selectAll(".category")
+                .data(data)
+                .enter().append("g")
+                .attr("class", "category")
+                .attr("transform", d => `translate(${x0(d.category)},0)`)
+                .selectAll("rect")
+                .data(d => ["part1", "part2"].map(key => ({ key: key, value: d[key] })))
+                .enter().append("rect")
+                .attr("x", d => x1(d.key))
+                .attr("y", d => y2(d.value))
+                .attr("width", x1.bandwidth())
+                .attr("height", d => height - y2(d.value))
+                .attr("fill", d => color(d.key))
+                ;
+        </script>
+        <hr>
     </body>
 </html>
