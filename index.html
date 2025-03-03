@@ -10,6 +10,7 @@
             const header1 = document.createElement("p");
             header1.textContent = "Première étape";
             document.body.appendChild(header1);
+            const tooltip = d3.select("body").append("div").attr("class", "tooltip");
             // Données utilisées dans la création du graphique
             const data = [
                 { category: 'A', part1: 30, part2: 20 },
@@ -62,7 +63,17 @@
                 .attr("x", d => x(d.data.category))
                 .attr("y", d => y(d[1]))
                 .attr("height", d => y(d[0]) - y(d[1]))
-                .attr("width", x.bandwidth());
+                .attr("width", x.bandwidth())
+                .on("mouseover", function(event, d) {
+                        tooltip.transition().duration(50).style("opacity", .9); // Rendre le tooltip visible
+                        tooltip.html(`${d.data.category}<br>Bleu : ${d.data.part1}<br>Orange : ${d.data.part2}`)
+                            .style("left", (event.pageX + 5) + "px") // Positionner à côté du curseur
+                            .style("top", (event.pageY - 28) + "px");
+                })
+                    // Ajouter un événement de sortie pour masquer le tooltip
+                .on("mouseout", function() {
+                    tooltip.transition().duration(500).style("opacity", 0); // Masquer le tooltip
+                 });
             
             // Ajout des axes x et y
             svg.append("g")
