@@ -3,7 +3,7 @@
         <meta charset="utf-8">
         <title>test</title>
         <script src="https://d3js.org/d3.v7.min.js"></script>
-        <script src="jquery-3.7.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         
     </head>
     <body>
@@ -86,7 +86,7 @@
             svg.append("g")
                 .attr("class", "axis y-axis")
                 .call(d3.axisLeft(y));
-            svg.setAttribute("id", "g1");
+            svg.attr("id", "g1");
 
 
             const header2 = document.createElement("p");
@@ -141,7 +141,7 @@
             svg2.append("g")
                 .attr("class", "axis y-axis")
                 .call(d3.axisLeft(y));
-            svg2.setAttribute("id", "g2");
+            svg2.attr("id", "g2");
 
             $("#cg").click(function(){
                   $("#g1").toggle();
