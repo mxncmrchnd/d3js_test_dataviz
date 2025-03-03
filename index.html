@@ -132,7 +132,7 @@
                 .attr("fill", d => color2(d.key))
                 .on("mouseover", function(event, d) {
                         tooltip.transition().duration(50).style("opacity", .9); // Rendre le tooltip visible
-                        tooltip.html(`${d.data.category}<br>Bleu : ${d.data.part1}<br>Orange : ${d.data.part2}`)
+                        tooltip.html(`${d.data2.category}<br>Bleu : ${d.data2.part1}<br>Orange : ${d.data2.part2}`)
                             .style("left", (event.pageX + 5) + "px") // Positionner à côté du curseur
                             .style("top", (event.pageY - 28) + "px");
                     })
