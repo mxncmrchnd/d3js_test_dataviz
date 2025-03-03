@@ -8,7 +8,7 @@
     <body>
         <script>
             const header1 = document.createElement("p");
-            header1.textContent("Première étape");
+            header1.textContent = "Première étape";
             document.body.appendChild(header1);
             // Données utilisées dans la création du graphique
             const data = [
@@ -74,6 +74,10 @@
                 .attr("class", "axis y-axis")
                 .call(d3.axisLeft(y));
 
+
+            const header2 = document.createElement("p");
+            header2.textContent = "Deuxième étape";
+            document.body.appendChild(header2);
             const data2 = [
                 { category: 'A', part1: 30, part2: 20 },
                 { category: 'B', part1: 40, part2: 10 },
