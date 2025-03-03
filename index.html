@@ -82,8 +82,8 @@
                 { category: 'C', part1: 20, part2: 30 },
             ];
             const margin2 = { top: 20, right: 30, bottom: 40, left: 40 },
-                  width = 500 - margin.left - margin.right,
-                  height = 300 - margin.top - margin.bottom; 
+                  width = 500 - margin2.left - margin2.right,
+                  height = 300 - margin2.top - margin2.bottom; 
             const svg2 = d3.select("body").append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
