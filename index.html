@@ -143,18 +143,13 @@
                 .call(d3.axisLeft(y));
             svg2.attr("id", "g2");
 
+            $("#g2").hide();
             $("#cg").click(function(){
                   $("#g1").toggle();
                   $("#g2").toggle();
             });
         </script>
         <style>
-            #g1{
-                visibility: visible;
-            }
-            #g2{
-                visibility: hidden;
-            }
             .tooltip {
                 position: absolute;
                 text-align: center;
