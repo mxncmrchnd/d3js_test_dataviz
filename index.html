@@ -84,6 +84,7 @@
             svg.append("g")
                 .attr("class", "axis y-axis")
                 .call(d3.axisLeft(y));
+            svg.setAttribute("id", "g1");
 
 
             const header2 = document.createElement("p");
@@ -138,9 +139,15 @@
             svg2.append("g")
                 .attr("class", "axis y-axis")
                 .call(d3.axisLeft(y));
-            console.log(svg2.data);
+            svg2.setAttribute("id", "g2");
         </script>
         <style>
+            #g1{
+                visibility: visible;
+            }
+            #g2{
+                visibility: collapse;
+            }
             .tooltip {
                 position: absolute;
                 text-align: center;
