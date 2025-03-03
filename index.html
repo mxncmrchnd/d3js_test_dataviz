@@ -3,9 +3,11 @@
         <meta charset="utf-8">
         <title>test</title>
         <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="jquery-3.7.1.min.js"></script>
         
     </head>
     <body>
+        <button id="cg" type="button">Changer de graphique</button>
         <script>
             const header1 = document.createElement("p");
             header1.textContent = "Première étape";
@@ -140,6 +142,11 @@
                 .attr("class", "axis y-axis")
                 .call(d3.axisLeft(y));
             svg2.setAttribute("id", "g2");
+
+            $("#cg").click(function(){
+                  $("#g1").toggle();
+                  $("#g2").toggle();
+            });
         </script>
         <style>
             #g1{
